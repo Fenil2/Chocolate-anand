@@ -46,6 +46,34 @@
   [id] {
     scroll-margin-top: 5.5rem;
   }
+
+  /* Tailwind v4 resets buttons to the default arrow; restore the hand for everything clickable */
+  a[href],
+  button,
+  [role="button"],
+  [role="radio"],
+  [role="tab"],
+  summary,
+  select,
+  label[for],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="submit"] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"],
+  input:disabled {
+    cursor: not-allowed;
+  }
+
+  input[type="email"],
+  input[type="text"],
+  input[type="search"],
+  textarea {
+    cursor: text;
+  }
 }
 
 @layer components {
