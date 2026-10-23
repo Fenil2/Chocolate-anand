@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Jost } from "next/font/google";
+import { Bodoni_Moda } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { Providers } from "@/components/Providers";
@@ -11,10 +12,16 @@ const bodoni = Bodoni_Moda({
   display: "swap",
 });
 
-const jost = Jost({
-  subsets: ["latin"],
+// Truly static Jost files (Fontsource, OFL). Google serves Jost as a variable font whose default
+// instance is Thin (100); engines that can't vary it (some WebKit builds) render every weight hairline.
+const jost = localFont({
+  src: [
+    { path: "./fonts/jost-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jost-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--font-jost",
   display: "swap",
+  fallback: ["Futura", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {

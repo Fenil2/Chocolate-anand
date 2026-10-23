@@ -8,7 +8,7 @@ import { stagger } from "@/components/motion/variants";
 
 export function Bestsellers() {
   return (
-    <section id="shop" aria-labelledby="shop-title" className="relative bg-obsidian pb-16 pt-[clamp(8rem,17vw,16rem)] sm:pb-24 sm:pt-[clamp(9rem,17vw,16rem)] lg:pb-36">
+    <section id="shop" aria-labelledby="shop-title" className="relative bg-obsidian pb-16 pt-[clamp(8rem,17vw,16rem)] sm:pb-24 sm:pt-[clamp(9rem,17vw,16rem)] lg:pb-36 2xl:pt-[19vw]">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-8">
         <Reveal className="mb-10 flex flex-col gap-4 sm:mb-12 md:mb-16 md:flex-row md:items-end md:justify-between">
           <RevealItem>

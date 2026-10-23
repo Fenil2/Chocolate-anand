@@ -25,7 +25,7 @@ export function Philosophy() {
 
       <motion.div
         style={{ y: powderY }}
-        className="absolute right-0 top-16 hidden aspect-[10/7] w-[22rem] overflow-hidden opacity-80 [mask-image:radial-gradient(closest-side_at_70%_50%,black_45%,transparent)] lg:block"
+        className="absolute right-0 top-16 hidden aspect-[10/7] w-[22rem] overflow-hidden opacity-80 [mask-image:radial-gradient(closest-side_at_70%_50%,black_45%,transparent)] [-webkit-mask-image:radial-gradient(closest-side_at_70%_50%,black_45%,transparent)] lg:block"
       >
         <Image src="/images/mora/cocoa-powder.jpg" alt="" fill sizes="22rem" className="object-cover" />
       </motion.div>

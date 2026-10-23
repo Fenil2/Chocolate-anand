@@ -17,10 +17,14 @@
 
 @layer base {
   html {
+    /* scroll-linked animations measure offsets against the root; it must not be static */
+    position: relative;
     background: var(--color-obsidian);
     color: var(--color-ivory);
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    /* hidden is the fallback for iOS < 16, which lacks clip */
+    overflow-x: hidden;
     overflow-x: clip;
   }
 
@@ -28,6 +32,7 @@
     font-family: var(--font-sans);
     background: var(--color-obsidian);
     color: var(--color-ivory);
+    overflow-x: hidden;
     overflow-x: clip;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

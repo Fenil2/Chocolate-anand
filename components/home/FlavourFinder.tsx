@@ -74,7 +74,14 @@ export function FlavourFinder() {
   const onPointerEnter = (e: PointerEvent) => e.pointerType === "mouse" && setHovered(true);
   const onPointerLeave = (e: PointerEvent) => e.pointerType === "mouse" && setHovered(false);
   // Only keyboard focus pauses (a tap also focuses the button on some browsers).
-  const onFocus = (e: FocusEvent) => setFocused((e.target as HTMLElement).matches(":focus-visible"));
+  const onFocus = (e: FocusEvent) => {
+    try {
+      setFocused((e.target as HTMLElement).matches(":focus-visible"));
+    } catch {
+      // Safari < 15.4 doesn't know :focus-visible; don't pause on focus there.
+      setFocused(false);
+    }
+  };
   const onBlur = (e: FocusEvent<HTMLElement>) => {
     if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false);
   };
@@ -92,7 +99,10 @@ export function FlavourFinder() {
         className="pointer-events-none absolute -right-[20%] top-1/2 h-[70rem] w-[70rem] -translate-y-1/2 rounded-full opacity-25"
         animate={{ backgroundColor: product?.accent ?? "#B87345" }}
         transition={{ duration: 1.4, ease: "easeInOut" }}
-        style={{ maskImage: "radial-gradient(closest-side, black, transparent)" }}
+        style={{
+          maskImage: "radial-gradient(closest-side, black, transparent)",
+          WebkitMaskImage: "radial-gradient(closest-side, black, transparent)",
+        }}
       />
 
       <div

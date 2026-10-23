@@ -49,7 +49,8 @@ export function Hero() {
                 alt="A MORA 70% dark chocolate bar in a black and copper wrapper, surrounded by cocoa beans, cocoa powder and glossy broken squares"
                 fill
                 priority
-                sizes="(min-width: 1024px) 64vw, 100vw"
+                // hidden below 640px, so ask for the smallest file there
+                sizes="(min-width: 1024px) 64vw, (min-width: 640px) 100vw, 1px"
                 className="hidden object-cover object-center sm:block"
               />
               <Image
@@ -57,7 +58,8 @@ export function Hero() {
                 alt="A MORA 70% dark chocolate bar in a black and copper wrapper, surrounded by cocoa beans and broken squares"
                 fill
                 priority
-                sizes="100vw"
+                // phone-only crop; hidden from 640px, so the smallest file is enough there
+                sizes="(max-width: 639px) 100vw, 1px"
                 className="object-cover object-center sm:hidden"
               />
             </motion.div>

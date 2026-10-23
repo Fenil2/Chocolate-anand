@@ -146,7 +146,8 @@ export function MeltEdge({ className, fadeTop = false, pourOnMount = false }: Me
     <svg
       viewBox={`0 0 ${W} ${H}`}
       preserveAspectRatio="xMidYMin slice"
-      className="block h-[clamp(150px,20vw,360px)] w-full"
+      // lg+: height follows the viewBox ratio (320/1440 ≈ 22.3vw) so long drips are never cropped flat on wide screens
+      className="block h-[clamp(150px,20vw,360px)] w-full lg:h-[22.3vw]"
       focusable="false"
     >
       <defs>
